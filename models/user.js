@@ -5,7 +5,7 @@ const sequelize = new Sequelize({
   database: process.env.DB,
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
-  dialect: 'mysql'
+  dialect: 'postgres'
 });
 
 
@@ -28,13 +28,13 @@ const User = sequelize.define('user', {
   },
 });
 
-// Connect to Mysql
+// Connect to Database
 sequelize
   .authenticate(
     // db,
     // { useNewUrlParser: true }
   )
-  .then(() => console.log('Mysql Connected'))
+  .then(() => console.log('Database Connected'))
   .catch(err => console.log(err));
 
 User.sync()
